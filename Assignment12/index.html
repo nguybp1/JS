@@ -1,0 +1,93 @@
+<!doctype html>
+
+<!--
+Student: Brandon Nguyen
+Professor: George Cooke
+Course: CTS2852C
+Project: Assignment 12
+File: index.html
+Date: 12/1/2015
+-->
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- Site Title -->
+    <title>CTS2852C - Assignment 12</title>
+    <!-- External main CSS -->
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <!-- External main jQuery  -->
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <!-- Internal jQuery script  -->
+    <script type="text/javascript">
+      jQuery(document).ready(function() {
+        $('button').on('click',function() {
+          var uncheckedButton;
+          /* jQuery effects: Show, Hide, Toggle, Fade In, Fade Out, 
+              Fade To, Slide Down, Slide Up, Slide Toggle */
+          if($('input[name="jQueryEffect"]:checked').val()=='Show') {
+            $('div').show();
+            uncheckedButton = false;
+          }
+          if($('input[name="jQueryEffect"]:checked').val()=='Hide') {
+            $('div').hide();
+            uncheckedButton = false;
+          }
+          if($('input[name="jQueryEffect"]:checked').val()=='Toggle') {
+            $('div').toggle();
+            uncheckedButton = false;
+          }
+          if($('input[name="jQueryEffect"]:checked').val()=='FadeIn') {
+            $('div').fadeIn(3000);
+            uncheckedButton = false;
+          }
+          if($('input[name="jQueryEffect"]:checked').val()=='FadeOut') {
+            $('div').fadeOut(3000);
+            uncheckedButton = false;
+          }
+          if($('input[name="jQueryEffect"]:checked').val()=='FadeTo') {
+            $('div').fadeTo(3000,0.5);
+            uncheckedButton = false;
+          }
+          if($('input[name="jQueryEffect"]:checked').val()=='SlideDown') {
+            $('div').slideDown(3000);
+            uncheckedButton = false;
+          }
+          if($('input[name="jQueryEffect"]:checked').val()=='SlideUp') {
+            $('div').slideUp(3000);
+            uncheckedButton = false;
+          }
+          if($('input[name="jQueryEffect"]:checked').val()=='SlideToggle') {
+            $('div').slideToggle();
+            uncheckedButton = false;
+          }
+          return uncheckedButton;
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <!-- Page Title -->
+    <header>
+      <h1>CTS2852C - Assignment 12</h1>
+    </header>    
+    <!-- Form contains jQuery effects -->
+    <form>
+      <input type="radio" name="jQueryEffect" value="Hide">Hide
+      <input type="radio" name="jQueryEffect" value="Show">Show
+      <input type="radio" name="jQueryEffect" value="Toggle">Toggle
+      <input type="radio" name="jQueryEffect" value="FadeOut">Fade Out
+      <input type="radio" name="jQueryEffect" value="FadeIn">Fade In
+      <input type="radio" name="jQueryEffect" value="FadeTo">Fade To
+      <input type="radio" name="jQueryEffect" value="SlideUp">Slide Up
+      <input type="radio" name="jQueryEffect" value="SlideDown">Slide Down
+      <input type="radio" name="jQueryEffect" value="SlideToggle">Slide Toggle
+      <button>Apply</button>
+    </form>
+    <!-- DIV contains small image and some text -->
+    <div>
+      <img src="img/blank.jpg" alt="Blank" />
+      <p>Here are some Text</p>
+    </div>
+  </body>
+</html>

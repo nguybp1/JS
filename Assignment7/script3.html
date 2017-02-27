@@ -1,0 +1,102 @@
+<!doctype html>
+
+<!--
+Student: Brandon Nguyen
+Professor: George Cooke
+Course: CTS2852C
+Project: Assignment 7
+File: script3.html
+Date: 10/13/2015
+-->
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- Site Tile -->
+    <title>CTS2852C - Assignment 7</title>
+    <!-- External style sheet -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript">
+      /* Return smallest number */
+      function minnum(min1,min2,min3) { 
+        return Math.min(min1,min2,min3);
+      }
+      /* Return biggest number */
+      function maxnum(max1,max2,max3) { 
+        return Math.max(max1,max2,max3);
+      }
+      /* Return random number */
+      function rannum(ran1,ran2,ran3) { 
+        var myArray = [ran1, ran2, ran3];
+        return myArray[Math.floor(Math.random() * myArray.length)];
+      }
+      /* Return rounding number */
+      function roundnum(ronum) { 
+        return Math.round(ronum);
+      }
+      /* Return sqare root number */
+      function squarenum(sqnum) { 
+        return Math.sqrt(sqnum);
+      }
+    </script>
+  </head>
+  <body>
+    <!-- Page Tile -->
+    <h2>Assignment 7 - Script 3</h2>
+    <table>
+      <caption><h3>JavaScript Math Functions</h3></caption>
+      <tr>
+        <th>Function</th>
+        <th>First value</th>
+        <th>Second value</th>
+        <th>Third value</th>
+        <th>Result</th>                
+      </tr>
+      <script type="text/javascript">
+        var num1 = 4.6; 
+        var num2 = 11;
+        var num3 = 1/2;
+        document.write('<tr>');
+        document.write('<td>Math.min\(\)</td>');
+        document.write('<td>'+num1+'</td>');
+        document.write('<td>'+num2+'</td>');
+        document.write('<td>'+num3+'</td>');
+        /* Return smallest number */
+        document.write('<td>Minimum number is '+minnum(num1,num2,num3)+'</td>');
+        document.write('</tr>');
+        document.write('<tr>');
+        document.write('<td>Math.max\(\)</td>');
+        document.write('<td>'+num1+'</td>');
+        document.write('<td>'+num2+'</td>');
+        document.write('<td>'+num3+'</td>');
+        /* Return biggest number */
+        document.write('<td>Maximum number is '+maxnum(num1,num2,num3)+'</td>');
+        document.write('</tr>');
+        document.write('<tr>');
+        document.write('<td>Math.random\(\)</td>');
+        document.write('<td>'+num1+'</td>');
+        document.write('<td>'+num2+'</td>');
+        document.write('<td>'+num3+'</td>');
+        /* Return random number */
+        document.write('<td>Random number is '+rannum(num1,num2,num3)+'</td>');
+        document.write('</tr>');
+        document.write('<tr>');
+        document.write('<td>Math.round\(\)</td>');
+        document.write('<td>'+num1+'</td>');
+        document.write('<td></td>');
+        document.write('<td></td>');
+        /* Return rounding number */
+        document.write('<td>Round number is '+roundnum(num1)+'</td>');
+        document.write('</tr>');
+        document.write('<tr>');
+        document.write('<td>Math.sqrt\(\)</td>');
+        document.write('<td></td>');
+        document.write('<td>'+num2+'</td>');
+        document.write('<td></td>');
+        /* Return sqare root number */
+        document.write('<td>Square root number is '+squarenum(num2)+'</td>');
+        document.write('</tr>');              
+      </script>
+    </table>          
+  </body>
+</html>

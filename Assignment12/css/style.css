@@ -1,0 +1,31 @@
+@charset "utf-8";
+
+/*
+Student: Brandon Nguyen
+Professor: George Cooke
+Course: CTS2852C
+Project: Assignment 12
+File: style.css
+Date: 12/1/2015
+*/
+
+body { 
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+  width: 900px;
+}
+header {
+  background-color: black;
+  color: white;
+  text-align: center;
+  margin: 5%;
+  padding: 5px 10px;
+  word-spacing: 30px;
+}
+h1 {
+  font-style: normal;
+  font-weight: 400;
+}
+p {
+  font-style: normal;
+  font-weight: 200;
+}

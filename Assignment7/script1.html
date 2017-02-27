@@ -1,0 +1,57 @@
+<!doctype html>
+
+<!--
+Student: Brandon Nguyen
+Professor: George Cooke
+Course: CTS2852C
+Project: Assignment 7
+File: script1.html
+Date: 10/13/2015
+-->
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- Site Tile -->
+    <title>CTS2852C - Assignment 7</title>
+    <!-- External style sheet -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript">
+      /* Check if string2 contains string1 */
+      function isMatch(str1,str2) { 
+        var nstr1=str1.toLowerCase();
+        var nstr2=str2.toLowerCase();
+        var result,matched;
+        /* Fault if string2 less than string1 */
+        if(nstr2.length < nstr1.length) {
+          matched=false;
+        }
+        else {
+          for(i=0;i<nstr2.length;i++) {
+            /* True if string2 contains string1 */
+            if(nstr1 == nstr2.substr(i,nstr1.length)) {
+              matched=true;
+              break;
+            }
+          }
+        }
+        /* Add style and page title back to page */
+        document.write('<link rel=\"stylesheet\" type=\"text/css\" href=\"css/style.css\">');
+        document.write('<h2>Assignment 7 - Script 1</h2>');
+        /* Display results */
+        document.write(matched?'<p>String 2 \"<b>'+str2+'</b>\" contain string 1 \"<b>'+str1+'</b>\" at position <b>'+nstr2.indexOf(nstr1)+'</b></p>':'<p>String 2 \"<b>'+str2+'</b>\" NOT contain string 1 \"<b>'+str1+'</b>\"</p>');
+      }
+    </script>
+  </head>
+  <body>
+    <!-- Page Tile -->
+    <h2>Assignment 7 - Script 1</h2>
+    <script type="text/javascript">
+      /* Prompt for strings */
+      var string1 = prompt('Enter first word','');
+      var string2 = prompt('Enter second word','');
+      /* Button to check strings */
+      document.write('<button onclick=\"isMatch\(string1,string2\)\">Click Me</button>');
+    </script>  
+  </body>
+</html>

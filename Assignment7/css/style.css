@@ -1,0 +1,35 @@
+/*
+Student: Brandon Nguyen
+Professor: George Cooke
+Course: CTS2852C
+Project: Assignment 7
+File: style.css
+Date: 10/13/2015
+*/
+
+body { 
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+  margin: 30px;
+}
+p, h2, h3, table {
+	text-align: center;
+}
+table, th, td {
+	border: double;
+  border-collapse: collapse;
+  width: 100%;
+  table-layout:fixed
+}
+table th {
+	background-color: lightgreen;
+}
+.gray {
+  background-color: lightgray;
+}
+.script2, .script2 th, .script2 td {
+  border: none;
+}
+button {
+  display:block;
+  margin:auto;
+}

@@ -1,0 +1,92 @@
+@charset "utf-8";
+
+/*
+Student: Brandon Nguyen
+Professor: George Cooke
+Course: CTS2852C
+Project: Final
+File: style.css
+Date: 10/06/2015
+*/
+
+/* Font Orbitron */
+@font-face {
+  font-family: Orbitron;
+  src: local("Orbitron Bold"),
+       local("Orbitron-Bold"),
+       url(../ttf/orbitronbold.ttf),
+       url(../ttf/orbitronbold.otf);
+}
+/* Font Orbitron */
+#welcome {
+  font-family: Orbitron;
+}
+body { 
+	background-image: url("../img/w1.gif");
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+nav, header, footer, main, h1, h2, h3, h4, form, table, div {
+	text-align: center;
+}
+nav {
+  margin-top:2em;
+}
+header {
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, sans-serif;
+  color: #FFFF00;
+  background-color: #0D7622;
+  margin: 5%;
+  padding: 10px;
+  font-weight: 800;
+  font-size: large;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  word-spacing: 10%;
+}
+footer {
+  font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", monospace;
+  color: #FFFFFF;
+  background-color: #000000;
+  margin: 5%;
+  padding: 10px;
+  font-variant: small-caps;
+  font-weight: 600;
+  font-size: small;
+  letter-spacing: 5px;
+  word-spacing: 50%;
+  white-space: nowrap;
+}
+h1 {
+  font-style: normal;
+  font-weight: 400;
+}
+a {
+  color: #FF0004;
+}
+table { 
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Background for index page */
+#Home {
+	background-image: url("../img/home.jpg");
+}
+#guest > p {
+    font-size: 2em;
+}
+/* Font size for word welcome */
+#welcome > p {
+  font-size: 10em;
+  letter-spacing: 40px;
+  text-transform: uppercase;
+}
+#About > p {
+  font-style: normal;
+  font-weight: 200;
+  margin: 1% 5%;
+  padding: 1%;
+}
+form > blockquote {
+  text-align: left;
+  margin-left: 40%;  
+}

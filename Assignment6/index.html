@@ -1,0 +1,85 @@
+<!doctype html>
+
+<!--
+Student: Brandon Nguyen
+Professor: George Cooke
+Course: CTS2852C
+Project: Assignment 6
+File: index.html
+Date: 10/06/2015
+-->
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- Site Tile on thumbnails window -->
+    <title>CTS2852C - Assignment 6</title>
+    <!-- Link external style sheet on thumbnails window -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script>
+      function newWindow(imgname) {
+        var newWindow;
+        /* Open new window containing image */
+        newWindow = open('','dynamicWindow','toolbar=0,location=0,status=no,width=820,height=710,resizable=0');
+        /* Open window */
+        newWindow.document.open();
+        /* Produce html tags on opened window */
+        newWindow.document.write('<!doctype html><html><head>');
+        newWindow.document.write('<meta charset=\"utf-8\">');
+        /* Link external style sheet on opened window */
+        newWindow.document.write('<link rel=\"stylesheet\" type=\"text/css\" href=\"css/style.css\">');
+        /* Site Tile on opened window */
+        newWindow.document.write('<title>CTS2852C - Assignment 6</title>');
+        newWindow.document.write('</head><body>');
+        /* Page Tile on opened window */
+        newWindow.document.write('<h3>Image '+imgname+'</h3>');
+        /* Form for closed button on opened window */
+        newWindow.document.write('<form name=\"myForm\"><input type=\"button\" value=\"Close Window\" onclick=\"window.close();\"/></form>');
+        newWindow.document.write('<p></p>');
+        /* Image source on opened window */
+        newWindow.document.write('<img src=\"img/img'+imgname+'.jpg\" alt=\"Image '+imgname+'\" width=\"800\" height=\"600\" />');
+        /* Close html tags on opened window */
+        newWindow.document.write('</body></html>');
+        /* Close window */
+        newWindow.document.close();
+        /* Focus on opened window */
+        newWindow.focus();
+      }
+    </script>
+  </head>
+  <body>
+    <table>   
+      <!-- Page Tile on thumbnails window -->
+      <caption><h2>Image Gallery</h2></caption>
+      <!-- Thumbnail images and buttons (x6) -->
+      <tr>
+        <td>
+          <img src="img/img1.jpg" width="300" height="225" alt="Image 1" /><br>
+          <button onclick="newWindow(1)">Image 1</button>
+        </td>
+        <td>
+          <img src="img/img2.jpg" width="300" height="225" alt="Image 2" /><br>
+          <button onclick="newWindow(2)">Image 2</button>
+        </td>
+        <td>
+          <img src="img/img3.jpg" width="300" height="225" alt="Image 3" /><br>
+          <button onclick="newWindow(3)">Image 3</button>
+        </td>        
+      </tr>
+      <tr>
+        <td>
+          <img src="img/img4.jpg" width="300" height="225" alt="Image 4" /><br>
+          <button onclick="newWindow(4)">Image 4</button>
+        </td>
+        <td>
+          <img src="img/img5.jpg" width="300" height="225" alt="Image 5" /><br>
+          <button onclick="newWindow(5)">Image 5</button>
+        </td>
+        <td>
+          <img src="img/img6.jpg" width="300" height="225" alt="Image 6" /><br>
+          <button onclick="newWindow(6)">Image 6</button>
+        </td>        
+      </tr>
+    </table>    
+  </body>
+</html>

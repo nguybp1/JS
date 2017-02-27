@@ -1,0 +1,87 @@
+<!doctype html>
+
+<!--
+Student: Brandon Nguyen
+Professor: George Cooke
+Course: CTS2852C
+Project: Assignment 11
+File: index.html
+Date: 11/17/2015
+-->
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>CTS2852C - Assignment 11</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript">
+      /* Change style of paragraph 1, 2, 3, and 4 */
+      function changeStyle() {
+        document.getElementById("para1").style.textAlign = "center";
+        document.getElementById("para2").style.textAlign = "right";
+        var para = document.getElementsByClassName("para");
+        para[0].style.color = "red";
+        para[0].style.backgroundColor = "yellow";
+        para[1].style.color = "cyan";
+        para[1].style.backgroundColor = "blue";      
+      };
+      /* Add new paragraph 6 */
+      function addPara() {
+        var txt = 'Here is the new paragraph 6';
+        var newtext = document.createTextNode(txt);
+        window.document.body.appendChild(newtext);
+      };
+      /* Change backgrounds of paragraph 5 */
+      function changeBg() {
+        var myBg=["red","white","blue","black","green","orange"];
+        var bg = document.getElementsByTagName("p");
+        if(countBg == 2 || countBg == 3) {
+          bg[4].style.color = "yellow";
+        } else {
+          bg[4].style.color = "black";
+        }        
+        bg[4].style.backgroundColor = myBg[countBg];
+        countBg++;
+        if(countBg >= 6) {
+          countBg = 0;
+        }
+      };
+      var countBg = 0;
+      setInterval("changeBg()", 3000 );
+    </script>
+  </head>
+  <!-- On load, change style of paragraph 1, 2, 3, and 4 -->
+  <body onLoad="changeStyle();">
+    <header>
+      <h1>CTS2852C - Assignment 11</h1>
+    </header>    
+    <!-- Paragraph 1 -->
+    <!-- On load, paragraph 1 is aligned to center -->
+    <div id="para1">
+      <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+    </div>
+    <!-- Paragraph 2 -->
+    <!-- On load, paragraph 2 is aligned to right -->
+    <div id="para2">
+      <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+    </div>
+    <!-- Paragraph 3 -->
+    <!-- On load, paragraph 3 is red on yellow background -->
+    <div class="para">
+      <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
+    </div>
+    <!-- Paragraph 4 -->
+    <!-- On load, paragraph 4 is cyan on blue background -->
+    <div class="para">
+      <p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
+    </div>
+    <!-- Paragraph 5 -->
+    <!-- On load, paragraph 5 background color is cycled through 6 colors  -->
+    <div>
+    <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then</p>
+    </div>    
+    <!-- Button to add new paragraph -->
+    <p><input type="button" value="Add Paragraph" onClick="addPara();this.disabled=true;"></p>
+    <!-- Add new paragraph here when button click -->
+  </body>
+</html>

@@ -1,0 +1,207 @@
+<!doctype html>
+
+<!--
+Student: Brandon Nguyen
+Professor: George Cooke
+Course: CTS2852C
+Project: Assignment 8
+File: script2.html
+Date: 10/20/2015
+-->
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- Site Tile -->
+    <title>CTS2852C - Assignment 8</title>
+    <!-- External style sheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- JavaScript -->
+    <script type="text/javascript">
+      /* Validate form */
+      function validateForm() {
+        var checked, email;
+        var len = document.forms[0].length;
+        var output = '';
+        var Radio = '';
+        var EmailRegExp = /^([a-zA-Z0-9_\-\.]+)@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/;
+        /* Loop through all elements */
+        for (var i=0;i<len;i++) {
+          /* Alert box if no name */
+          if(i==0 && document.forms[0].elements[i].value == '') {
+            alert('You forgot to enter your name');
+            checked=false;
+            break;
+          }
+          /* Alert box if no email */
+          else if(i==1 && document.forms[0].elements[i].value == '') {
+            alert('You forgot to enter your email');
+            checked=false;
+            break;
+          }
+          /* Alert box if wrong email format */
+          else if(i==1 && document.forms[0].elements[i].value != '') {
+            email = document.forms[0].elements[i].value;
+            if(EmailRegExp.test(email) == false) {
+              alert('You entered wrong email format');
+              checked=false;
+              break;
+            }
+            else {
+              output += document.forms[0].elements[i].name + ' = ' + document.forms[0].elements[i].value + '\n';
+            }
+          }
+          /* Collect student status */
+          else if(i==4) {
+            if(document.forms[0].elements[i].checked) {
+              output += document.forms[0].elements[i].name + ' = ' + document.forms[0].elements[i].value + '\n';
+              Radio = true;
+            }
+          }  
+          else if(i==5) {
+            if(document.forms[0].elements[i].checked) {
+              output += document.forms[0].elements[i].name + ' = ' + document.forms[0].elements[i].value + '\n';
+              Radio = true;
+            }
+            /* Alert box if no student status */
+            if(Radio == false) {
+              alert('You forgot to enter your student status');
+              checked=false;
+              break;
+            }
+          }  
+          /* Collect intern status */
+          else if(i==6) {
+            if(document.forms[0].elements[i].checked==true) {
+              output += document.forms[0].elements[i].name + ' = ' + document.forms[0].elements[i].value + '\n';
+            }
+            else {
+              output += document.forms[0].elements[i].name + ' = No\n';
+            }
+          }
+          else if(i==7) {
+            /* Alert box if no major and course */
+            if(document.forms[0].elements[i].value == 0) {
+              alert('You forgot to enter your major and course');
+              checked=false;
+              break;
+            }
+            /* Collect major and course */
+            else {
+              if(document.forms[0].elements[i].value == 1) {
+                output += document.forms[0].elements[i].name + ' = ' + Major[1] + '\n';
+              }
+              if(document.forms[0].elements[i].value == 2) {
+                output += document.forms[0].elements[i].name + ' = ' + Major[2] + '\n';
+              }
+              if(document.forms[0].elements[i].value == 3) {
+                output += document.forms[0].elements[i].name + ' = ' + Major[3] + '\n';
+              }
+            }
+          }
+          /* Break out loop if hit submit or reset */
+          else if(i==9) {
+            break;
+          }
+          
+          else {
+            output += document.forms[0].elements[i].name + ' = ' + document.forms[0].elements[i].value + '\n';
+          }
+
+        } //end for loop
+        /* Update output if not false */
+        if(checked != false) {
+          alert(output);
+        }
+      }
+      /* Update comment count */
+      function updateCommentCount() {
+        document.script2.Comment_Count.value = document.script2.Comments.value.length;
+      }
+      
+      /* Dynamic drop boxes */
+      var Major = [];
+      Major.push('Select a Major');
+      Major.push('Computer Science');
+      Major.push('Computer Engineer');
+      Major.push('Web Developer');
+      //
+      var courseTaken = [];
+      courseTaken.push(['Please select a Major first']);
+      courseTaken.push(['C','C++','Java']);
+      courseTaken.push(['Information Systems','Systems Integration','Platform Technologies']);
+      courseTaken.push(['DreamWeaver','JavaScript','Photoshop']);
+      //
+      var MajorSelect = '';
+      for (var j=0;j<Major.length;j++) {
+        MajorSelect += '<option value="'+j+'">'+Major[j]+'</option>';
+      }
+      //
+      var courseOptions = '';
+      for (var j=0;j<courseTaken[0].length;j++) {
+        courseOptions += '<option value="'+j+'">'+courseTaken[0][j]+'</option>';
+      }
+      //
+      function changeMajor(MajorForm) {
+        var selectedMajor = -1;
+        var MajorOptions = MajorForm.Major.length;
+        for (var i=0;i<MajorOptions;i++) {
+          if (MajorForm.Major.options[i].selected) {
+            selectedMajor = i;
+            break;
+          }
+        }
+        if (selectedMajor != -1) {
+          removeAllOptions(MajorForm.Course);
+          for (var j=0;j<courseTaken[selectedMajor].length;j++) {
+            addOption(MajorForm.Course,courseTaken[selectedMajor][j],courseTaken[selectedMajor][j]);
+          }
+        }
+      }
+      function removeAllOptions(selectbox) {
+        for(var j=selectbox.options.length-1;j>=0;j--){
+          selectbox.remove(j);
+        }
+      }
+      function addOption(selectbox, value, text ){
+        var optn = document.createElement("OPTION");
+        optn.text = text;
+        optn.value = value;
+        selectbox.options.add(optn);
+      }               
+
+    </script>
+  </head>
+  <body>
+    <!-- Page Tile -->
+    <h2>CTS2852C - Assignment 8</h2>
+    <!-- Section Tile -->
+    <h1>Script 2</h1>
+    <form name="script2" method="post" action="script2.html">
+      <!-- Text - Name --> 
+      *Name: <input type="text" name="Name"><br>
+      <!-- Text - Email --> 
+      *Email: <input type="text" name="Email"><br>
+      <!-- Textarea --> 
+      Comments: <textarea name="Comments" onFocus="if (this.value=='This is where you enter comments') {this.value = ''};updateCommentCount();" onBlur="if (this.value == '') {this.value = 'This is where you enter comments'};updateCommentCount();" onKeyUp="updateCommentCount()">This is where you enter comments</textarea>
+      <input name="Comment_Count" type="text" disabled="disabled" value="32" size="4"><br>
+      <!-- Radio button --> 
+      *Are you student? <input type="radio" name="Student" value="Yes"> Yes <input type="radio" name="Student" value="No"> No<br>
+      <!-- Checkboxes -->
+      Check box if you are intern?<input type="checkbox" name="Intern" value="Yes"><br>
+      <!-- Dynamic drop box -->
+      *Major: <select name="Major" onChange="changeMajor(this.form)">
+        <script>
+          document.write(MajorSelect);
+        </script>
+      </select><br/>
+      *Course Selection: <select name="Course">
+        <script>
+          document.write(courseOptions);
+        </script>
+      </select><br>
+      <input type="submit" name="submit" value="Submit Form" onClick="validateForm()">
+      <input type="reset" name="reset" value="Reset Form">
+    </form>    
+  </body>
+</html>

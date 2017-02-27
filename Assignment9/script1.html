@@ -1,0 +1,52 @@
+<!doctype html>
+
+<!--
+Student: Brandon Nguyen
+Professor: George Cooke
+Course: CTS2852C
+Project: Assignment 9
+File: script1.html
+Date: 10/27/2015
+-->
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- Site Tile -->
+    <title>CTS2852C - Assignment 9</title>
+    <!-- External style sheet -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript">
+      function myBrowser() {
+        if (navigator.userAgent.indexOf('Opera') > 0 || navigator.userAgent.indexOf('OPR') > 0) {
+          alert('Based on 09/2015 statistics published by StatCounter,\nthe Opera browser has a 1.8% market share.');
+        }
+        else if (navigator.userAgent.indexOf('Firefox') > 0) {
+          alert('Based on 09/2015 statistics published by StatCounter,\nthe Firefox browser has a 15.86% market share.');
+        }
+        else if (navigator.userAgent.indexOf('MSIE') > 0 || navigator.userAgent.indexOf('Trident') > 0) {
+          alert('Based on 09/2015 statistics published by StatCounter,\nthe Internet Explorer browser has a 15.71% market share.');
+        }
+        else if (navigator.userAgent.indexOf('Chrome') > 0) {
+          alert('Based on 09/2015 statistics published by StatCounter,\nthe Chrome browser has a 15.71% market share.');
+        }
+        else if (navigator.userAgent.indexOf('Safari') > 0) {
+          alert('Based on 09/2015 statistics published by StatCounter,\nthe Safari browser has a 9.15% market share.');
+        }
+        else {
+          alert('Based on 09/2015 statistics published by StatCounter,\nthe other browsers has a 1.25% market share.');
+        }
+      }  
+    </script>
+  </head>
+  <body>
+    <!-- Page Tile -->
+    <h2>CTS2852C - Assignment 9</h2>
+    <!-- Section Tile -->
+    <h1>Script 1</h1>
+    <!-- StatCounter 9/2015: Chrome 53.08%, FF 15.86%, IE 15.71%, Safari 9.15%, Opera 1.8%, Others 1.25% -->
+    <script type="text/javascript">
+      myBrowser();
+    </script>
+  </body>
+</html>

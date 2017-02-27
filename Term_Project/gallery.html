@@ -1,0 +1,72 @@
+<!doctype html>
+
+<!--
+Student: Brandon Nguyen
+Professor: George Cooke
+Course: CTS2852C
+Project: Individual Prject
+File: gallery.html
+Date: 12/08/2015
+-->
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- Site Tile -->
+    <title>CTS2852C - Individual Project</title>
+    <!-- Main style sheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- External JavaScript -->
+    <script src="js/nav.js" type="text/javascript"></script>     
+    <script src="js/gal.js" type="text/javascript"></script>
+  </head>
+  <body id="Gallery">
+    <!-- Navigation Menu -->
+    <nav>
+      <script type="text/javascript">loadNav();</script>      
+    </nav>
+    <!-- Header - Page Tile -->
+    <header><h1>Gallery</h1></header>
+    <table>   
+      <!-- Thumbnail images and buttons (x8) -->
+      <tr>
+        <td>
+          <img src="img/Cloud_Sunset_Sunrise.jpg" width="300" height="225" alt="Image 1" /><br>
+          <button onclick="javascript: newWindow(1);">Image 1</button>
+        </td>
+        <td>
+          <img src="img/Mountains_Autumn_Trees.jpg" width="300" height="225" alt="Image 2" /><br>
+          <button onclick="javascript: newWindow(2);">Image 2</button>
+        </td>
+        <td>
+          <img src="img/Green_Chile_Mountain.jpg" width="300" height="225" alt="Image 3" /><br>
+          <button onclick="javascript: newWindow(3);">Image 3</button>
+        </td>        
+        <td>
+          <img src="img/Green_Water_Mountains.jpg" width="300" height="225" alt="Image 4" /><br>
+          <button onclick="javascript: newWindow(4);">Image 4</button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img src="img/England_Bridge_River.jpg" width="300" height="225" alt="Image 5" /><br>
+          <button onclick="javascript: newWindow(5);">Image 5</button>
+        </td>
+        <td>
+          <img src="img/Nature_Mountain_Lake.jpg" width="300" height="225" alt="Image 6" /><br>
+          <button onclick="javascript: newWindow(6);">Image 6</button>
+        </td>        
+        <td>
+          <img src="img/Water_Mountains_Nature.jpg" width="300" height="225" alt="Image 7" /><br>
+          <button onclick="javascript: newWindow(7);">Image 7</button>
+        </td>
+        <td>
+          <img src="img/Yosemite_National_Park.jpg" width="300" height="225" alt="Image 8" /><br>
+          <button onclick="javascript: newWindow(8);">Image 8</button>
+        </td>
+      </tr>
+    </table>    
+    <!-- Footer - Copy Rights -->
+    <footer>&copy; 2015 <a href="index.html">Brandon Nguyen</a></footer>
+  </body>
+</html>

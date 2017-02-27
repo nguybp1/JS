@@ -1,0 +1,72 @@
+<!doctype html>
+
+<!--
+Student: Brandon Nguyen
+Professor: George Cooke
+Course: CTS2852C
+Project: Individual Prject
+File: contact.html
+Date: 12/08/2015
+-->
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- Site Tile -->
+    <title>CTS2852C - Individual Project</title>
+    <!-- Main style sheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- jQuery style sheet -->
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <!-- jQuery JavaScript -->
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <!-- External JavaScript -->
+    <script src="js/nav.js" type="text/javascript"></script>     
+    <script src="js/form.js" type="text/javascript"></script>     
+    <script>
+      /* jQuery Date */
+      $(function() {
+        $( "#datepicker" ).datepicker();
+      });
+    </script>
+  </head>
+  <body id="Contact">
+    <!-- Navigation Menu -->
+    <nav>
+      <script type="text/javascript">loadNav();</script>      
+    </nav>
+    <!-- Header - Page Tile -->
+    <header><h1>Contact</h1></header>
+    <!-- Web Form -->
+	  <form name="myForm" method="post" action="http://ss1.ciwcertified.com/cgi-bin/process.pl">
+      <blockquote>
+      <!-- Text - Username --> 
+      *Username: <input type="text" name="Username" id="username" size="15" maxlength="30" onkeyup="javascript: return nameCheck();" />
+      <span id="username2">Username checking...</span><br>
+      Username is at least 6 characters<br>
+      <!-- Password - Password --> 
+      * Password: <input name="Password" id="password" type="password" size="15" maxlength="20" onkeyup="javascript: return pwdCheck();" />
+      <span id="meter">Password Meter</span><br>    
+      * Retype Password: <input name="Password2" id="password2" type="password" size="15" maxlength="20" onkeyup="javascript: return pwdMatch();" />
+      <span id="meter2">Match checking...</span><br>
+      Strong: At least 8 combined upper, lower case, number and special key (ex: P@s5W0*d)<br>
+      Medium: 6 or more with upper, lower case and number (ex: Passw0rd)<br>
+      Weak: Not meet either condition above<br>
+      <!-- Text - Email --> 
+      *Email: <input type="text" name="Email" id="email" size="15" maxlength="30" onkeyup="javascript: return mailCheck();" />
+      <span id="email2">Email checking...</span><br>
+      <!-- Date - jQuery --> 
+      *Date: <input type="text" name="Date" id="datepicker"><br>
+      <!-- Textarea --> 
+      Comments: 
+      <input name="Comment_Count" type="text" disabled="disabled" value="32" size="4"> words count<br>
+      <textarea  maxlength="500" rows="10" cols="50" name="Comments" onFocus="if (this.value=='This is where you enter comments') {this.value = ''};updateCommentCount();" onBlur="if (this.value == '') {this.value = 'This is where you enter comments'};updateCommentCount();" onKeyUp="updateCommentCount()">This is where you enter comments</textarea><br><br>
+      <input type="submit" name="Submit" value="Submit Form" onclick="return formValid();">
+      <input type="reset" name="Reset" value="Reset Form">
+      </blockquote>
+    </form>    
+    <!-- Footer - Copy Rights -->
+    <footer>&copy; 2015 <a href="index.html">Brandon Nguyen</a></footer>
+  </body>
+</html>

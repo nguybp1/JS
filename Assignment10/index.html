@@ -1,0 +1,107 @@
+<!doctype html>
+
+<!--
+Student: Brandon Nguyen
+Professor: George Cooke
+Course: CTS2852C
+Project: Assignment 10
+File: index.html
+Date: 11/3/2015
+-->
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- Site Tile -->
+    <title>CTS2852C - Assignment 10</title>
+    <!-- External style sheet -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript">
+      /* Initialize values for Car and Truck */
+      function start() {
+        document.vehicleInfo.car.value = 0;
+        document.vehicleInfo.truck.value = 0;
+      };
+      /* Reset value of Direction always between 0 and 360 */
+      function resetPosition(pos) {
+        if(pos > 360) {
+          pos -= 360;
+        }
+        if(pos < 0) {
+          pos += 360;
+        }
+        if(pos == 360) {
+          pos = 0;
+        }
+        return pos;
+      };
+      /* Main custom object Vehicle */
+      function Vehicle(myType, myEngine, mySeat) {
+        /* Four properties of Vehicle */
+        this.type = myType;
+        this.engine = myEngine;
+        this.seat = mySeat;
+        this.direction = 0;
+        /* Left method */
+        this.left = leftDirection;
+        /* Right method */
+        this.right = rightDirection;
+        /* displayAll method */
+        this.displayAll = function() {
+          alert('Type: '+this.type+'\nEngine: '+this.engine+'\nSeat: '+this.seat+'\nDirection: '+this.direction+'\n');
+        };
+        /* Left method */
+        function leftDirection(vehicleDirection) {
+          /* Get current value respectively to the left */
+          this.direction = document.vehicleInfo.elements[vehicleDirection].value;
+          /* Change value respectively to the left */
+          this.direction = parseInt(this.direction) - theOffset;
+          /* Reset value respectively to the left */
+          this.direction = resetPosition(this.direction);
+          /* Put new value respectively to the left */
+          document.vehicleInfo.elements[vehicleDirection].value=this.direction;
+        };
+        /* Right method */
+        function rightDirection(vehicleDirection) {
+          /* Get current value respectively to the right */
+          this.direction = document.vehicleInfo.elements[vehicleDirection].value;
+          /* Change value respectively to the right */
+          this.direction = parseInt(this.direction) + theOffset;
+          /* Reset value respectively to the right */
+          this.direction = resetPosition(this.direction);
+          /* Put new value respectively to the right */
+          document.vehicleInfo.elements[vehicleDirection].value=this.direction;
+        };
+      };
+      /* Offset value of 10 degree */
+      var theOffset = 10;
+      /* Instantiate two variables */
+      var myCar = new Vehicle('Car', 'Small', 4);
+      var myTruck = new Vehicle('Truck', 'Big', 2);
+    </script>
+  </head>
+  <body onLoad="start();">
+    <h2>CTS2852C - Assignment 10</h2>
+    <form name="vehicleInfo">
+      <!-- Car Vehicle -->
+      <h3>Car</h3>
+      <input type="text" name="car"><br>
+      <!-- Apply Left method for Car Vehicle -->
+      <input type="button" value="Left 10 degree" onClick="myCar.left(0);">
+      <!-- Apply Right method Car Vehicle -->
+      <input type="button" value="Right 10 degree" onClick="myCar.right(0);">
+      <!-- Apply displayAll method Car Vehicle -->
+      <input type="button" value="Display All" onClick="myCar.displayAll();">
+      <hr>
+      <!-- Truck Vehicle -->
+      <h3>Truck</h3>
+      <input type="text" name="truck"><br>
+      <!-- Apply Left method for Truck Vehicle -->
+      <input type="button" value="Left 10 degree" onClick="myTruck.left(4);">
+      <!-- Apply Right method Truck Vehicle -->
+      <input type="button" value="Right 10 degree" onClick="myTruck.right(4);">
+      <!-- Apply displayAll method Truck Vehicle -->
+      <input type="button" value="Display All" onClick="myTruck.displayAll();">
+    </form>
+  </body>
+</html>

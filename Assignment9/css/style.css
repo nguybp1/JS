@@ -1,0 +1,21 @@
+/*
+Student: Brandon Nguyen
+Professor: George Cooke
+Course: CTS2852C
+Project: Assignment 6
+File: style.css
+Date: 10/06/2015
+*/
+
+body { 
+	background-image: url("../img/w1.gif");
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+h1, h2, h3, form, table {
+	text-align: center;
+}
+img {
+  display: block;
+  margin: auto;
+}

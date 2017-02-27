@@ -1,0 +1,116 @@
+<!doctype html>
+
+<!--
+Student: Brandon Nguyen
+Professor: George Cooke
+Course: CTS2852C
+Project: Assignment 7
+File: script4.html
+Date: 10/13/2015
+-->
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- Site Tile -->
+    <title>CTS2852C - Assignment 7</title>
+    <!-- External style sheet -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript">
+      /* Converts integer (unicode value) to ASCII */
+      function first32(num1) { 
+        var f32=["NUL (null)","SOH (start of header)","STX (start of text)","ETX (end of text)","EOT (end of transmission)","ENQ (enquiry)","ACK (acknowledge)","BEL (bell)","BS (Backspace)","HT (horizontal tab)","LF (line feed)","VT (vertical tab)","FF (form feed)","CR (carrage return)","SO (shift out)","SI (shift in)","DLE (data link escape)","DC1 (device control 1)","DC2 (device control 2)","DC3 (device control 3)","DC4 (device control 4)","NAK (negative acknowledge)","SYN (synchronize)","ETB (end transmission block)","CAN (cancel)","EM (end of medium)","SUB (substitute)","ESC (escape)","FS (file separator)","GS (group separator)","RS (record separator)","US (unit separator)","SPACE (space)","DEL (delete)"];
+        return f32[num1];
+      }
+      function int2ascii(num2) { 
+        return String.fromCharCode(num2);
+      }
+    </script>
+  </head>
+  <body>
+    <!-- Table for control characters -->
+    <h2>Assignment 7 - Script 4</h2>
+    <!-- Page Tile -->
+    <table>
+      <caption><h3>ASCII control characters</h3></caption>
+      <tr>
+        <th>Integer</th>
+        <th>Character</th>
+        <th>Integer</th>
+        <th>Character</th>
+        <th>Integer</th>
+        <th>Character</th>
+        <th>Integer</th>
+        <th>Character</th>        
+      </tr>
+      <script type="text/javascript">
+        for (var i = 0; i <= 8; i++) {
+          document.write('<tr>');
+          document.write('<td class="gray">'+i+'</td>');
+          document.write('<td>'+first32(i)+'</td>');
+          document.write('<td class="gray">'+(i+9)+'</td>');
+          document.write('<td>'+first32(i+9)+'</td>');
+          document.write('<td class="gray">'+(i+18)+'</td>');
+          document.write('<td>'+first32(i+18)+'</td>');
+          /* White out undefined numbers and characters */
+          if((i+27)==33) {
+            document.write('<td class="gray">127</td>');
+          }
+          else if((i+27)==34||(i+27)==35) {
+            document.write('<td class="gray"></td>');
+          }
+          else{
+            document.write('<td class="gray">'+(i+27)+'</td>');
+          }
+          if((i+27)==33) {
+            document.write('<td>'+first32(33)+'</td>');
+          }
+          else if((i+27)==34||(i+27)==35) {
+            document.write('<td></td>');
+          }
+          else{
+            document.write('<td>'+first32(i+27)+'</td>');
+          }
+          document.write('</tr>');
+        }        
+      </script>
+    </table>
+    <!-- Table for basic characters -->
+    <table>
+      <caption><h3>ASCII basic characters</h3></caption>
+      <tr>
+        <th>Integer</th>
+        <th>Character</th>
+        <th>Integer</th>
+        <th>Character</th>
+        <th>Integer</th>
+        <th>Character</th>
+        <th>Integer</th>
+        <th>Character</th>
+        <th>Integer</th>
+        <th>Character</th>
+        <th>Integer</th>
+        <th>Character</th>        
+      </tr>
+      <script type="text/javascript">
+        for (var i = 33; i <= 48; i++) {
+          document.write('<tr>');
+          document.write('<td class="gray">'+i+'</td>');
+          document.write('<td>'+int2ascii(i)+'</td>');
+          document.write('<td class="gray">'+(i+16)+'</td>');
+          document.write('<td>'+int2ascii(i+16)+'</td>');
+          document.write('<td class="gray">'+(i+32)+'</td>');
+          document.write('<td>'+int2ascii(i+32)+'</td>');
+          document.write('<td class="gray">'+(i+48)+'</td>');
+          document.write('<td>'+int2ascii(i+48)+'</td>');
+          document.write('<td class="gray">'+(i+64)+'</td>');
+          document.write('<td>'+int2ascii(i+64)+'</td>');
+          /* White out undefined numbers and characters */
+          document.write(((i+80)==127||(i+80)==128)?'<td class="gray"></td>':'<td class="gray">'+(i+80)+'</td>');
+          document.write(((i+80)==127||(i+80)==128)?'<td></td>':'<td>'+int2ascii(i+80)+'</td>');
+          document.write('</tr>');
+        }        
+      </script>
+    </table>       
+  </body>
+</html>

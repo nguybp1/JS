@@ -1,0 +1,76 @@
+<!doctype html>
+
+<!--
+Student: Brandon Nguyen
+Professor: George Cooke
+Course: CTS2852C
+Project: Assignment 7
+File: script2.html
+Date: 10/13/2015
+-->
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- Site Tile -->
+    <title>CTS2852C - Assignment 7</title>
+    <!-- External style sheet -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript">
+      /* Today */
+      var currentDate = new Date();
+      /* Yesterday */
+      var previousDate = new Date();
+      previousDate.setDate(currentDate.getDate() - 1);
+      /* Ten years ago */
+      var yearsDate = new Date();
+      yearsDate.setYear(currentDate.getFullYear()-10);
+      /* One week from today */
+      var weekDate = new Date();
+      weekDate.setDate(currentDate.getDate() + 7);
+      
+      /* Return current date and time */
+      function Now() { 
+        alert('Today is '+currentDate);
+      }
+      /* Resturn date and time from yesterday */
+      function Yesterday() { 
+        alert('Yesterday is '+previousDate);
+      }
+      /* Return date and time from 10 years ago */
+      function Years_Ago() { 
+        alert('Ten years ago from today is '+yearsDate);
+      }
+      /* Return date and time 1 week from today */
+      function Week_from_today() { 
+        alert('One week from today is '+weekDate);
+      }
+    </script>
+  </head>
+  <body>
+    <!-- Page Tile -->
+    <h2>Assignment 7 - Script 2</h2>
+    <h2>Date and Time</h2>
+    <p>&nbsp;</p>
+    <table class="script2">   
+      <tr>
+        <td>
+          <!-- Button display current Date and Time -->
+          <button onclick="Now()">Now</button>
+        </td>
+        <td>
+          <!-- Button display Date and Time from yesterday-->
+          <button onclick="Yesterday()">Yesterday</button>
+        </td>
+        <td>
+          <!-- Button display Date and Time from 10 years ago -->
+          <button onclick="Years_Ago()">10 Years Ago</button>
+        </td>        
+        <td>
+          <!-- Button display Date and Time one week from today -->
+          <button onclick="Week_from_today()">One Week from today</button>
+        </td>
+      </tr>
+    </table>  
+  </body>
+</html>

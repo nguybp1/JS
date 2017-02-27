@@ -1,0 +1,75 @@
+<!doctype html>
+
+<!--
+Student: Brandon Nguyen
+Professor: George Cooke
+Course: CTS2852C
+Project: Assignment 9
+File: script2.html
+Date: 10/27/2015
+-->
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- Site Tile -->
+    <title>CTS2852C - Assignment 9</title>
+    <!-- External style sheet -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript">
+      function getNameCookie() {
+        var cookieName = 'Coffee';
+        var cookieReturn = '';
+        var allCookies = document.cookie;
+        var cookieArray = allCookies.split(';');
+        for (var i=0; i<cookieArray.length; i++) {
+          var theCookie = cookieArray[i];
+          while (theCookie.charAt(0)==' ') {
+            theCookie = theCookie.substring(1,theCookie.length);
+					} 
+          if (theCookie.indexOf(cookieName+'=') == 0) {
+            alert('We have sale on '+theCookie);
+          }
+        }
+      }
+      function storeName() {
+          var currentDate = new Date();
+          var expireDate = new Date(currentDate.getFullYear()+1,currentDate.getMonth(),currentDate.getDate());
+          
+          var fieldType, cookieName, cookieValue;
+          for(i=0; i<document.forms["myForm"].elements.length; i++) {
+            fieldType = document.forms["myForm"].elements[i].type;
+            
+            if(fieldType == 'checkbox' && document["myForm"].elements[i].checked) {
+              cookieName = document.forms["myForm"].elements[i].name;
+              cookieValue = document.forms["myForm"].elements[i].value;
+            } else if(fieldType == 'text') {
+              cookieName = document.forms["myForm"].elements[i].name;
+              cookieValue = document.forms["myForm"].elements[i].value;
+            } 
+            document.cookie = cookieName+'='+cookieValue+';expires='+expireDate.toUTCString();
+          }
+      }
+    </script>
+  </head>
+  <body onLoad="getNameCookie()">
+    <!-- Page Tile -->
+    <h2>CTS2852C - Assignment 9</h2>
+    <!-- Section Tile -->
+    <h1>Script 2</h1>
+    <form name="myForm" method="post">
+      <p>Name: 
+      <input type="text" name="Name" value="">
+      </p>
+      <p>Room: 
+      <input type="text" name="Room" value="">
+      </p>
+      <p>Checkboxes: 
+      Espresso <input type="checkbox" name="Coffee" value="Espresso">
+      Cappuccino <input type="checkbox" name="Coffee" value="Cappuccino">
+      Mocha <input type="checkbox" name="Coffee" value="Mocha">
+      </p>
+      <p><input type="button" value="Submit" onClick="storeName()"></p>
+    </form>
+  </body>
+</html>

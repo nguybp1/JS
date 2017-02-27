@@ -1,0 +1,95 @@
+<!doctype html>
+
+<!--
+Student: Brandon Nguyen
+Professor: George Cooke
+Course: CTS2852C
+Project: Assignment 8
+File: script1.html
+Date: 10/20/2015
+-->
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- Site Tile -->
+    <title>CTS2852C - Assignment 8</title>
+    <!-- External style sheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <script type="text/javascript">
+      /* Validate form */
+      function checkcard() {
+        var FName, cardValue, cardType, cardText;
+        FName = document.forms["script1"]["fname"].value;
+        cardValue = document.forms["script1"]["CCard"].value;
+        cardText = cardValue.toString();
+        cardType = cardText.substr(0,1);
+        /* Alert box if no name */
+        if (FName == 'Enter your First Name' || FName == '') {
+          alert('You forgot to enter your name');
+        }
+        /* Alert box if no numbers */
+        else if (isNaN(cardValue) || cardValue == '') {
+            alert('You forgot to enter your credit card');
+        }
+        else {
+          switch (cardType) {
+            case '3' :
+              /* Aknowledge for Amex card */
+              if (cardText.length == 15) {
+                alert('Thanks, '+FName+' for submitted Amex card');
+                break;
+              } else {
+                /* Alert box if not Amex card */
+                alert(FName+', you entered: '+cardValue+'');
+                alert('Wrong numbers for Amex card. Please, re-enter numbers');
+                break;
+              }
+            case '4' :
+              /* Aknowledge for Visa card */
+              if(cardText.length == 16) {
+                alert('Thanks, '+FName+' for submitted Visa card');
+                break;
+              } else {
+                /* Alert box if not Visa card */
+                alert(FName+', you entered: '+cardValue+'');
+                alert('Wrong numbers for Visa card. Please, re-enter numbers');
+                break;
+              }
+            case '5' :
+              /* Aknowledge for Master card */
+              if(cardText.length == 16) {
+                alert('Thanks, '+FName+' for submitted Master card');
+                break;
+              } else {
+                /* Alert box if not Master card */
+                alert(FName+', you entered: '+cardValue+'');
+                alert('Wrong numbers for Master card. Please, re-enter numbers');
+                break;
+              }
+            default :
+              /* Alert box if not accepted card */
+              alert('Please, re-enter a proper credit card. Thanks!');
+            break;
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <!-- Page Tile -->
+    <h2>CTS2852C - Assignment 8</h2>
+    <!-- Section Tile -->
+    <h1>Script 1</h1>
+    <form name="script1" method="post" action="script1.html">
+      <!-- Text - Name --> 
+      First Name: <input type="text" name="fname" value="Enter your First Name" onFocus="if (this.value=='Enter your First Name') {this.value = ''}" onBlur="if (this.value == '') {this.value = 'Enter your First Name'}"><br>
+      <!-- Text - Credit Card --> 
+      Credit Card: <input type="text" name="CCard" value="Enter your Credit Card" onFocus="if (this.value=='Enter your Credit Card') {this.value = ''}" onBlur="if (this.value == '') {this.value = 'Enter your Credit Card'}"><br>
+      Note: Only enter numbers no dash symbol<br>
+      Note: Only accept American Express, Visa or Master Credit card<br>
+      <input type="submit" value="Submit Form" onClick="return checkcard()">
+      <input type="reset" value="Reset Form">
+    </form>        
+  </body>
+</html>
